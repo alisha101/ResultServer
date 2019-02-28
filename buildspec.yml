@@ -37,6 +37,6 @@ phases:
       - aws s3 rm s3://${S3_BUCKET} --recursive
       - echo S3 bucket is cleared.
       - ls target/Spring4AnnotationConfig-1.0-SNAPSHOT.war
-      - aws s3 cp /codebuild/output/src801918966/src/target/*.war s3://${S3_BUCKET}/${APP_NAME} --recursive
+      - aws s3 cp target/*.war s3://${S3_BUCKET} --recursive
       # - aws s3 cp s3://com.yoursitename/warFile/*.war /tmp
       # - sudo mv /tmp/*.war /var/lib/tomcat/webapps/ROOT.war
