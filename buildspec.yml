@@ -1,0 +1,41 @@
+version: 0.2
+
+env:
+    variables:
+        S3_BUCKET: "codepipeline-javaconnect"
+        APP_NAME: "JavaConnect"
+        # BUILD_ENV : "prod"
+
+phases:
+
+  pre_build:
+
+    commands:
+
+        – echo Entered the install phase…
+        – sudo apt-get update -y
+        – sudo apt-get install -y software-properties-common
+        – sudo add-apt-repository ppa:openjdk-r/ppa
+        – sudo apt-get update -y
+        – sudo apt-get install -y openjdk-8-jdk
+        – sudo apt-get install -y maven
+
+  build:
+
+    commands:
+
+      - mvn clean
+      - echo mvn clean done
+      – mvn install
+      - echo mvn install done
+
+  post_build:
+
+    commands:
+      - echo Build completed on `date`
+      - mvn package
+      - aws s3 rm s3://${S3_BUCKET} --recursive
+      - echo S3 bucket is cleared.
+      - aws s3 cp target/*.war s3://${S3_BUCKET}/${APP_NAME} --recursive
+      # - aws s3 cp s3://com.yoursitename/warFile/*.war /tmp
+      # - sudo mv /tmp/*.war /var/lib/tomcat/webapps/ROOT.war
