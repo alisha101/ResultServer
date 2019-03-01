@@ -51,27 +51,27 @@ public class DALUser {
        }
        return null;
    }
-	public void registerUsers() throws SQLException {
+	public boolean registerUsers(User user) throws SQLException {
 	
-		User user = new User();
+//		User user = new User();
 	
-		int id = user.getId();
+		
 		String name = user.getName();
 		String username = user.getUsername();
 		String password = user.getPassword();
 		String role = user.getRole();	
 		
-		String query="insert into user (id,name,username,password,role)" + "values(?,?,?,?,?)" ;
+		String query="insert into user (name,username,password,role)" + "values(?,?,?,?)" ;
 
 		DBConnection db = new DBConnection();
 		PreparedStatement s = db.connection().prepareStatement(query);
-		s.setInt (1, id);
-		s.setString (2, name);
-		s.setString (3, username);
-		s.setString (4, password);
-		s.setString (5, role);
+		
+		s.setString (1, name);
+		s.setString (2, username);
+		s.setString (3, password);
+		s.setString (4, role);
 
-		s.execute();
+		boolean res = s.execute();
 
 //		String query="insert into user values (id,name,username,pwd,role)";
 //		DBConnection db = new DBConnection();
@@ -79,5 +79,6 @@ public class DALUser {
 //		s.executeQuery(query);
 	
 		db.close();
+		return res;
 	}
 }

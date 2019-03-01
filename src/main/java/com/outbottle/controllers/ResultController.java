@@ -78,11 +78,11 @@ public class ResultController {
    }
    
    @Produces("application/json")
-   @RequestMapping(value = "/registerUsers", method = RequestMethod.GET)
+   @RequestMapping(value = "/registerUser", method = RequestMethod.POST)
    @ResponseBody
-   public void registerUsers() throws SQLException {
+   public boolean  registerUsers(@RequestBody User u) throws SQLException {
        DALUser ru = new DALUser();
-       ru.registerUsers();
+       return ru.registerUsers(u);
    }
    
    @Produces("application/json")
