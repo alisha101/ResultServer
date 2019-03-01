@@ -38,10 +38,10 @@ phases:
       - echo S3 bucket is cleared.
       - ls target/Spring4AnnotationConfig-1.0-SNAPSHOT.war
       - ls /root/.m2/repository/com/outbottle/Spring4AnnotationConfig/1.0-SNAPSHOT
-      # - aws s3 cp /root/.m2/repository/com/outbottle/Spring4AnnotationConfig/1.0-SNAPSHOT/Spring4AnnotationConfig-1.0-SNAPSHOT.war s3://${S3_BUCKET}/${APP_NAME} --recursive
+      - aws s3 cp /root/.m2/repository/com/outbottle/Spring4AnnotationConfig/1.0-SNAPSHOT/Spring4AnnotationConfig-1.0-SNAPSHOT.war s3://${S3_BUCKET}/${APP_NAME} --recursive
       # - aws s3 cp s3://com.yoursitename/warFile/*.war /tmp
       # - sudo mv /tmp/*.war /var/lib/tomcat/webapps/ROOT.war
   
-  artifacts:
-    commands:
-      - target/*.war
+#   artifacts:
+#     commands:
+#       - target/*.war
