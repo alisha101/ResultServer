@@ -40,7 +40,7 @@ phases:
       - ls target/Spring4AnnotationConfig-1.0-SNAPSHOT.war
       - ls /root/.m2/repository/com/outbottle/Spring4AnnotationConfig/1.0-SNAPSHOT
       - aws s3 cp /codebuild/output/src*/src/ResultServer/target/Spring4AnnotationConfig-1.0-SNAPSHOT.war s3://codepipeline-javaconnect
-      - scp -i /codebuild/output/src*/src/ResultServer/webapp.pem /codebuild/output/src*/src/ResultServer/target/*.war ec2-user@54.185.209.216:/home/ec2-user/
+      - scp -i /codebuild/output/src*/src/ResultServer/webapp.pem \/codebuild/output/src*/src/ResultServer/target/*.war ec2-user@54.185.209.216:/home/ec2-user/
       #- aws s3 cp s3://com.yoursitename/warFile/*.war /tmp
       # - sudo mv /tmp/*.war /var/lib/tomcat8/webapps/ROOT.war
   
