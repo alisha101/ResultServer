@@ -15,15 +15,17 @@ phases:
         - echo Entered the install phase-
         - sudo apt-get update -y
         - sudo apt-get install -y software-properties-common
-        - sudo add-apt-repository ppa:openjdk-r/ppa
+        - sudo add-apt-repository ppa:openjdk-r/ppa 
         - sudo apt-get update -y
-        - sudo apt-get install -y openjdk-8-jdk
         - sudo apt-get install -y maven
+        - sudo apt  install awscli
+        - sudo apt install git
+        - git clone https://github.com/alisha101/ResultServer.git
 
   build:
 
     commands:
-
+      - cd ResultServer
       - mvn clean
       - echo mvn clean done
       - mvn install
@@ -34,11 +36,11 @@ phases:
     commands:
       - echo Build completed on `date`
       - mvn package
-      - aws s3 rm s3://${S3_BUCKET} --recursive
+      - aws s3 rm s3://codepipeline-javaconnect --recursive
       - echo S3 bucket is cleared.
       - ls target/Spring4AnnotationConfig-1.0-SNAPSHOT.war
       - ls /root/.m2/repository/com/outbottle/Spring4AnnotationConfig/1.0-SNAPSHOT
-      - aws s3 cp /root/.m2/repository/com/outbottle/Spring4AnnotationConfig/1.0-SNAPSHOT/Spring4AnnotationConfig-1.0-SNAPSHOT.war s3://${S3_BUCKET}/${APP_NAME} --recursive
+      - aws s3 cp /home/ubuntu/ResultServer/target/Spring4AnnotationConfig-1.0-SNAPSHOT.war s3://${S3_BUCKET}/${APP_NAME} --recursive
       # - aws s3 cp s3://com.yoursitename/warFile/*.war /tmp
       # - sudo mv /tmp/*.war /var/lib/tomcat/webapps/ROOT.war
   
