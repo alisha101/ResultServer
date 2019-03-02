@@ -37,10 +37,10 @@ phases:
       - mvn package
       - aws s3 rm s3://codepipeline-javaconnect --recursive
       - echo S3 bucket is cleared.
-      - pwd
       - ls target/Spring4AnnotationConfig-1.0-SNAPSHOT.war
       - ls /root/.m2/repository/com/outbottle/Spring4AnnotationConfig/1.0-SNAPSHOT
       - aws s3 cp /codebuild/output/src*/src/ResultServer/target/Spring4AnnotationConfig-1.0-SNAPSHOT.war s3://codepipeline-javaconnect
+      - echo Thanks to sumeet
       # - aws s3 cp s3://com.yoursitename/warFile/*.war /tmp
       # - sudo mv /tmp/*.war /var/lib/tomcat/webapps/ROOT.war
   
