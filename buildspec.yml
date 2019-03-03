@@ -40,7 +40,7 @@ phases:
       - ls /root/.m2/repository/com/outbottle/Spring4AnnotationConfig/1.0-SNAPSHOT
       - chmod 400 webapp.pem
       - ssh -o StrictHostKeyChecking=No -i /codebuild/output/src*/src/ResultServer/webapp.pem ec2-user@ec2-54-188-124-87.us-west-2.compute.amazonaws.com uptime 
-      - scp -i /codebuild/output/src*/src/ResultServer/webapp.pem \/codebuild/output/src*/src/ResultServer/target/Spring4AnnotationConfig-1.0-SNAPSHOT.war ec2-user@ec2-54-188-124-87.us-west-2.compute.amazonaws.com:/var/lib/tomcat8/webapps/
+      - scp -i /codebuild/output/src*/src/ResultServer/webapp.pem \/codebuild/output/src*/src/ResultServer/target/Spring4AnnotationConfig-1.0-SNAPSHOT.war ec2-user@ec2-54-188-124-87.us-west-2.compute.amazonaws.com:/var/lib/tomcat8/webapps/Spring4AnnotationConfig.war
       #- scp -i /codebuild/output/src*/src/ResultServer/webapp.pem \/codebuild/output/src*/src/ResultServer/target/*.war ec2-user@54.185.209.216:/home/ec2-user/
       #- aws s3 rm s3://codepipeline-javaconnect --recursive
       #- aws s3 cp /codebuild/output/src*/src/ResultServer/target/Spring4AnnotationConfig-1.0-SNAPSHOT.war s3://codepipeline-javaconnect
