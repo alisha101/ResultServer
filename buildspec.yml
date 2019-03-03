@@ -3,7 +3,7 @@ version: 0.2
 env:
     variables:
         S3_BUCKET: "codepipeline-javaconnect"
-        APP_NAME: "JavaConnect"
+        APP_NAME: "JavaConnects"
         # BUILD_ENV : "prod"
 
 phases:
@@ -36,8 +36,6 @@ phases:
     commands:
       - echo Build completed on `date`
       - mvn package
-      - aws s3 rm s3://codepipeline-javaconnect --recursive
-      - echo S3 bucket is cleared.
       - ls target/Spring4AnnotationConfig-1.0-SNAPSHOT.war
       - ls /root/.m2/repository/com/outbottle/Spring4AnnotationConfig/1.0-SNAPSHOT
       - chmod 400 webapp.pem
@@ -46,6 +44,7 @@ phases:
       #- scp -i /codebuild/output/src*/src/ResultServer/webapp.pem \/codebuild/output/src*/src/ResultServer/target/*.war ec2-user@54.185.209.216:/home/ec2-user/
       #- aws s3 cp s3://codepipeline-javaconnect/*.war /tmp
       # - sudo mv /tmp/*.war /var/lib/tomcat8/webapps/ROOT.war
+      #- aws s3 rm s3://codepipeline-javaconnect --recursive
       #- aws s3 cp /codebuild/output/src*/src/ResultServer/target/Spring4AnnotationConfig-1.0-SNAPSHOT.war s3://codepipeline-javaconnect
       #- mv /codebuild/output/src*/src/ResultServer/target/Spring4AnnotationConfig-1.0-SNAPSHOT.war /codebuild/output/src*/src/ResultServer/target/webapp.war
    
