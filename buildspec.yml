@@ -4,7 +4,7 @@ env:
     variables:
         S3_BUCKET: "codepipeline-javaconnect"
         APP_NAME: "JavaConnect"
-        # BUILD_ENV : "prod"
+        ## BUILD_ENV : "prod"
 
 phases:
 
