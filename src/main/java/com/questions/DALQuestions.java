@@ -110,7 +110,7 @@ public class DALQuestions {
 		
 		int selectedId = que.getId();
 		
-		String query="delete From questions Where id = " + id;
+		String query="delete from questions where id = " + id;
 		System.out.println(query);
 		DBConnection db = new DBConnection();
 		Statement s = db.connection().createStatement();
