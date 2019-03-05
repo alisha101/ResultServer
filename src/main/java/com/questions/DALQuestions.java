@@ -104,7 +104,7 @@ public class DALQuestions {
 		return al;
 	}
 	
-	public void deleteQuestionById(int id) throws SQLException {
+	public boolean deleteQuestionById(int id) throws SQLException {
 		
 		Questions que = new Questions();
 		
@@ -117,6 +117,7 @@ public class DALQuestions {
 		s.executeUpdate(query);
  
 		db.close();
+		return true;
 	}
 	
 }
