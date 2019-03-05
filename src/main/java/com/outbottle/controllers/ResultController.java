@@ -20,10 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestBody;
 
-/**
- *
- * @author alisha
- */
+
 @CrossOrigin(origins = "*", maxAge = 3600)
 @Controller
 public class ResultController {
@@ -127,9 +124,9 @@ public class ResultController {
    @Produces("application/json")
    @RequestMapping(value = "/deleteQuestionById", method = RequestMethod.POST)
    @ResponseBody
-   public void deleteQuestionById(@RequestBody int id) throws SQLException {
+   public boolean deleteQuestionById(@RequestBody int id) throws SQLException {
        DALQuestions que = new DALQuestions();
-       que.deleteQuestionById(id);
+       return que.deleteQuestionById(id);
    }
    
 }
