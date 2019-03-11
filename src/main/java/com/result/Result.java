@@ -1,5 +1,7 @@
 package com.result;
 
+// Defining data members and constructor
+
 public class Result {
 	
 	int id;
