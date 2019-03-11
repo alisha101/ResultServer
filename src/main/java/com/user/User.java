@@ -1,5 +1,7 @@
 package com.user;
 
+// Defining data members and constructor
+
 public class User {
 	
 	int id;
