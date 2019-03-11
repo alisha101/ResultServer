@@ -2,6 +2,8 @@ package com.dbconnection;
 
 import java.sql.*;  
 
+// For database connection
+
 public class DBConnection {
 	Connection con;
 	//Connection built and return connection
