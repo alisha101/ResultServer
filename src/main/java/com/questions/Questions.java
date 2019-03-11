@@ -1,5 +1,7 @@
 package com.questions;
 
+// Defining data members and constructor
+
 public class Questions {
 	int id;
 	String question,option1,option2,option3,option4,answer;
