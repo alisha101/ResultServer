@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import com.dbconnection.DBConnection;
 import com.questions.Questions;
 
+// Communicating to Database
+
 public class DALResult {
 	
 	public ArrayList<Result> getAllResult() throws SQLException {
