@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+// Communicating with Database
+
 public class DALUser {
     
    public ArrayList<User> getAllUsers() throws SQLException {
