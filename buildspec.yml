@@ -1,10 +1,10 @@
+# for cicd
+
 version: 0.2
 
 env:
     variables:
-        S3_BUCKET: "codepipeline-javaconnect"
         APP_NAME: "JavaConnects"
-        # BUILD_ENV : "prod"
 
 phases:
 
@@ -32,7 +32,7 @@ phases:
       - echo mvn install done
 
   post_build:
-
+    # adding pem file and ec2 ip in host file and copy .war file in ec2 instance
     commands:
       - echo Build completed on `date`
       - mvn package
