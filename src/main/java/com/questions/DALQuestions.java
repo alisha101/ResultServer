@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 import com.dbconnection.DBConnection;
 
+// For communicating to database
+
 public class DALQuestions {
 	
 	public ArrayList<Questions> getAllQuestions() throws SQLException {
