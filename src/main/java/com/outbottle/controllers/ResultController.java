@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestBody;
 
+// Define endpoints which is called in angular
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @Controller
